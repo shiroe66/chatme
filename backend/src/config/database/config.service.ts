@@ -6,7 +6,7 @@ export class PostgreSQLService {
   constructor(private configService: ConfigService) {}
 
   get host() {
-    return this.configService.get<string>('psql.localhost');
+    return this.configService.get<string>('psql.host');
   }
 
   get port() {
