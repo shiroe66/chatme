@@ -2,7 +2,7 @@ import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class MailService {
+export class VerificationService {
   constructor(private mailerService: MailerService) {}
 
   async sendVerification(email: string) {
