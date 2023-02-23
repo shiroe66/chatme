@@ -7,14 +7,14 @@ import { User } from './entities/user.entity';
 export class UserService {
   constructor(@InjectRepository(User) private userRepository: Repository<User>) {}
 
-  async findOne(phone: number) {
-    const user = await this.userRepository.findOne({ where: { phone } });
+  async findOne(email: string) {
+    const user = await this.userRepository.findOne({ where: { email } });
     return user;
   }
 
-  async create(data: { phone: number }) {
-    const { phone } = data;
-    const user = await this.findOne(phone);
+  async create(data: { email: string }) {
+    const { email } = data;
+    const user = await this.findOne(email);
     if (user) {
       throw new ConflictException();
     }

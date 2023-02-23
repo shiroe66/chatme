@@ -12,8 +12,11 @@ export class User extends BaseEntity {
   @PrimaryColumn({ default: () => 'gen_random_uuid()' })
   id: string;
 
-  @Column({ type: 'int', unique: true, nullable: false })
-  phone: number;
+  @Column({ type: 'text', unique: true, nullable: false })
+  email: string;
+
+  @Column({ default: false })
+  isEmailConfigmed: boolean;
 
   @Column()
   username: string;
