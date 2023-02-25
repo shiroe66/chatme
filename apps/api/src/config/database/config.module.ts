@@ -1,6 +1,6 @@
 import * as Joi from '@hapi/joi';
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { PostgreSQLService } from './config.service';
 import configuration from './configuration';
 
@@ -17,7 +17,7 @@ import configuration from './configuration';
       }),
     }),
   ],
-  providers: [ConfigService, PostgreSQLService],
-  exports: [ConfigService, PostgreSQLService],
+  providers: [PostgreSQLService],
+  exports: [PostgreSQLService],
 })
 export class PostgreSQLModule {}

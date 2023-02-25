@@ -16,7 +16,7 @@ export class User extends BaseEntity {
   email: string;
 
   @Column({ default: false })
-  isEmailConfigmed: boolean;
+  isEmailConfirmed: boolean;
 
   @Column()
   username: string;

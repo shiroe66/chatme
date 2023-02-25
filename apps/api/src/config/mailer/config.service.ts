@@ -20,4 +20,12 @@ export class MailerConfigService {
   get password() {
     return this.configService.get<string>('mailer.password');
   }
+
+  get secret() {
+    return this.configService.get<string>('mailer.secret');
+  }
+
+  get expires_in() {
+    return this.configService.get<string>('mailer.expires_in');
+  }
 }
