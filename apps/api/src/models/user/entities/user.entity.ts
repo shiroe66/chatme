@@ -1,8 +1,11 @@
+import { Session } from '@/models/session/entities/session.entity';
+import { Exclude } from 'class-transformer';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -21,7 +24,9 @@ export class User extends BaseEntity {
   @Column()
   username: string;
 
+  // FIX: exclude password
   @Column()
+  @Exclude()
   password: string;
 
   @CreateDateColumn({ type: 'timestamp' })
@@ -29,4 +34,7 @@ export class User extends BaseEntity {
 
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
+
+  @OneToMany(() => Session, (session) => session.user)
+  sessions: Session[];
 }
